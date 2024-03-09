@@ -13,11 +13,15 @@ function renderQuestions(questions) {
     const questionDiv = document.createElement("div");
     questionDiv.classList.add("question");
 
-    // Question Text
-    const questionText = document.createElement("p");
-    questionText.classList.add("question-text");
-    questionText.textContent = question.text;
-    questionDiv.appendChild(questionText);
+    // Text
+    const textParagraph = document.createElement("p");
+    textParagraph.textContent = `Text: ${question.text}`;
+    questionDiv.appendChild(textParagraph);
+
+    // Question
+    const questionParagraph = document.createElement("p");
+    questionParagraph.textContent = `Question: ${question.question}`;
+    questionDiv.appendChild(questionParagraph);
 
     // Answer Choices
     question.answers.forEach((answer, ansIndex) => {
@@ -60,8 +64,10 @@ function renderQuestions(questions) {
 // Function to add a new question
 function addQuestion() {
   const questions = JSON.parse(localStorage.getItem("questions")) || [];
+  const newText = prompt("Enter the text:");
   const newQuestion = {
-    text: prompt("Enter the question text:"),
+    text: newText,
+    question: prompt("Enter the question:"),
     answers: [
       prompt("Enter answer 1:"),
       prompt("Enter answer 2:"),
@@ -82,7 +88,11 @@ function editQuestion(index) {
   const questions = JSON.parse(localStorage.getItem("questions")) || [];
   const questionToEdit = questions[index];
 
-  questionToEdit.text = prompt("Edit the question text:", questionToEdit.text);
+  questionToEdit.text = prompt("Edit the text:", questionToEdit.text);
+  questionToEdit.question = prompt(
+    "Edit the question:",
+    questionToEdit.question
+  );
   questionToEdit.answers.forEach((answer, ansIndex) => {
     questionToEdit.answers[ansIndex] = prompt(
       `Edit answer ${ansIndex + 1}:`,
