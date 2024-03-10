@@ -1,27 +1,91 @@
- <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-      }
+body {
+  font-family: "Merriweather", serif, sans-serif;
+  background-color: whitesmoke;
+  margin: 0;
+  padding: 0;
+}
 
-      #quiz-container {
-        max-width: 600px;
-        margin: auto;
-      }
+#quiz-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: maroon;
+}
 
-      .question {
-        margin-bottom: 10px;
-      }
+h1 {
+  color: #3498db;
+  text-align: left;
+  margin-bottom: 15px; /* Added spacing below h1 for better visual hierarchy */
+}
+#quiz {
+  border: 1px solid maroon;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden; /* Add overflow for small screens */
+}
 
-      .answer {
-        margin-bottom: 5px;
-      }
+button {
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  border: maroon;
+}
 
-      #add-question-btn,
-      .edit-btn,
-      .delete-btn {
-        margin-top: 10px;
-        cursor: pointer;
-        padding: 5px;
-      }
-    </style>
+#score {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #27ae60;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.question p {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 0;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* Style for smaller screens */
+@media only screen and (max-width: 600px) {
+  #quiz-container {
+    width: 95%;
+    padding: 15px; /* Adjusted padding for smaller screens */
+  }
+
+  h1 {
+    text-align: center; /* Center-align h1 on smaller screens */
+  }
+
+  .question p {
+    padding: 15px;
+  }
+}
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+  #quiz {
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+}
